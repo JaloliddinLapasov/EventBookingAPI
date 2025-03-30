@@ -164,3 +164,4 @@ C:\Users\user\Desktop\Lesson\EventBookingAPI\obj\Debug\net9.0\refint\EventBookin
 C:\Users\user\Desktop\Lesson\EventBookingAPI\obj\Debug\net9.0\EventBookingAPI.pdb
 C:\Users\user\Desktop\Lesson\EventBookingAPI\obj\Debug\net9.0\EventBookingAPI.genruntimeconfig.cache
 C:\Users\user\Desktop\Lesson\EventBookingAPI\obj\Debug\net9.0\ref\EventBookingAPI.dll
+C:\Users\user\Desktop\Lesson\EventBookingAPI\obj\Debug\net9.0\EventBookingAPI.sourcelink.json

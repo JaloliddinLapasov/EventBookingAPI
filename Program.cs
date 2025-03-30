@@ -12,17 +12,37 @@ builder.Services.AddControllers();  // ✅ Controller-larni qo‘shish
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")  // Angular domenini qo'shish
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
+
+// Habilitar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Permitir solicitudes desde Angular
+                  .AllowAnyMethod() // Permitir GET, POST, PUT, DELETE, etc.
+                  .AllowAnyHeader() // Permitir todos los headers
+                  .AllowCredentials(); // Si estás usando autenticación
+        });
+});
+
 var app = builder.Build();
 
-// Swagger UI ni faollashtirish
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Usar CORS antes de mapear los controladores
+app.UseCors("AllowAngularApp");
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
